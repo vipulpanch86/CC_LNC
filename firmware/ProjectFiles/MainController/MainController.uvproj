@@ -600,11 +600,6 @@
               <FilePath>..\..\Source\MainController\Application\src\main.c</FilePath>
             </File>
             <File>
-              <FileName>acm_control.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\..\Source\MainController\Application\src\acm_control.c</FilePath>
-            </File>
-            <File>
               <FileName>buzzer.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\Source\MainController\Application\src\buzzer.c</FilePath>

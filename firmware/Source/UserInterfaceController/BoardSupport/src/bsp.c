@@ -147,11 +147,13 @@ static void GPIO_Configuration(void)
   GPIO_InitStructure.GPIO_Mode = LCD_RST_GPIO_MODE;
   GPIO_InitStructure.GPIO_Pin = LCD_RST_GPIO_PIN;
   GPIO_Init(LCD_RST_GPIO_PORT, &GPIO_InitStructure);
+  GPIO_WriteBit(LCD_RST_GPIO_PORT, LCD_RST_GPIO_PIN, Bit_SET);
 
   /* Configure LCD_BKL pin I/O as digital output push-pull */
   GPIO_InitStructure.GPIO_Mode = LCD_BKL_GPIO_MODE;
   GPIO_InitStructure.GPIO_Pin = LCD_BKL_GPIO_PIN;
   GPIO_Init(LCD_BKL_GPIO_PORT, &GPIO_InitStructure);
+  GPIO_WriteBit(LCD_BKL_GPIO_PORT, LCD_BKL_GPIO_PIN, Bit_RESET);
   
   /* Configure DBG_USART_TX pin I/O as alternate function push-pull */
   GPIO_InitStructure.GPIO_Mode = DBG_USART_TX_GPIO_MODE;
@@ -167,27 +169,32 @@ static void GPIO_Configuration(void)
   GPIO_InitStructure.GPIO_Mode = KPD_SCAN0_GPIO_MODE;
   GPIO_InitStructure.GPIO_Pin = KPD_SCAN0_GPIO_PIN;
   GPIO_Init(KPD_SCAN0_GPIO_PORT, &GPIO_InitStructure);
-  
+  GPIO_WriteBit(KPD_SCAN0_GPIO_PORT, KPD_SCAN0_GPIO_PIN, Bit_SET);
+
   /* Configure KPD_SCAN1 pin I/O as digital output push-pull */
   GPIO_InitStructure.GPIO_Mode = KPD_SCAN1_GPIO_MODE;
   GPIO_InitStructure.GPIO_Pin = KPD_SCAN1_GPIO_PIN;
   GPIO_Init(KPD_SCAN1_GPIO_PORT, &GPIO_InitStructure);
+  GPIO_WriteBit(KPD_SCAN1_GPIO_PORT, KPD_SCAN1_GPIO_PIN, Bit_SET);
 
   /* Configure KPD_SCAN2 pin I/O as digital output push-pull */
   GPIO_InitStructure.GPIO_Mode = KPD_SCAN2_GPIO_MODE;
   GPIO_InitStructure.GPIO_Pin = KPD_SCAN2_GPIO_PIN;
   GPIO_Init(KPD_SCAN2_GPIO_PORT, &GPIO_InitStructure);
+  GPIO_WriteBit(KPD_SCAN2_GPIO_PORT, KPD_SCAN2_GPIO_PIN, Bit_SET);
   
   /* Configure KPD_SCAN3 pin I/O as digital output push-pull */
   GPIO_InitStructure.GPIO_Mode = KPD_SCAN3_GPIO_MODE;
   GPIO_InitStructure.GPIO_Pin = KPD_SCAN3_GPIO_PIN;
   GPIO_Init(KPD_SCAN3_GPIO_PORT, &GPIO_InitStructure);
+  GPIO_WriteBit(KPD_SCAN3_GPIO_PORT, KPD_SCAN3_GPIO_PIN, Bit_SET);
   
   /* Configure LCD_CS pin I/O as digital output push-pull */
   GPIO_InitStructure.GPIO_Mode = LCD_CS_GPIO_MODE;
   GPIO_InitStructure.GPIO_Pin = LCD_CS_GPIO_PIN;
   GPIO_Init(LCD_CS_GPIO_PORT, &GPIO_InitStructure);
-
+  GPIO_WriteBit(LCD_CS_GPIO_PORT, LCD_CS_GPIO_PIN, Bit_SET);
+  
   /* Configure COM_USART_TX pin I/O as alternate function push-pull */
   GPIO_InitStructure.GPIO_Mode = COM_USART_TX_GPIO_MODE;
   GPIO_InitStructure.GPIO_Pin = COM_USART_TX_GPIO_PIN;
@@ -202,11 +209,13 @@ static void GPIO_Configuration(void)
   GPIO_InitStructure.GPIO_Mode = LCD_RS_GPIO_MODE;
   GPIO_InitStructure.GPIO_Pin = LCD_RS_GPIO_PIN;
   GPIO_Init(LCD_RS_GPIO_PORT, &GPIO_InitStructure);
+  GPIO_WriteBit(LCD_RS_GPIO_PORT, LCD_RS_GPIO_PIN, Bit_SET);
 
   /* Configure LCD_WR pin I/O as digital output push-pull */
   GPIO_InitStructure.GPIO_Mode = LCD_WR_GPIO_MODE;
   GPIO_InitStructure.GPIO_Pin = LCD_WR_GPIO_PIN;
   GPIO_Init(LCD_WR_GPIO_PORT, &GPIO_InitStructure);
+  GPIO_WriteBit(LCD_WR_GPIO_PORT, LCD_WR_GPIO_PIN, Bit_SET);
   
   /* Configure SWDIO pin I/O as input floating  */
   GPIO_InitStructure.GPIO_Mode = SWDIO_GPIO_MODE;
@@ -222,86 +231,103 @@ static void GPIO_Configuration(void)
   GPIO_InitStructure.GPIO_Mode = LCD_RD_GPIO_MODE;
   GPIO_InitStructure.GPIO_Pin = LCD_RD_GPIO_PIN;
   GPIO_Init(LCD_RD_GPIO_PORT, &GPIO_InitStructure);
+  GPIO_WriteBit(LCD_RD_GPIO_PORT, LCD_RD_GPIO_PIN, Bit_SET);
     
   /* Configure LCD_DB0 pin I/O as digital output push-pull */
   GPIO_InitStructure.GPIO_Mode = LCD_DB0_GPIO_MODE;
   GPIO_InitStructure.GPIO_Pin = LCD_DB0_GPIO_PIN;
   GPIO_Init(LCD_DB0_GPIO_PORT, &GPIO_InitStructure);
+  GPIO_WriteBit(LCD_DB0_GPIO_PORT, LCD_DB0_GPIO_PIN, Bit_RESET);
 
   /* Configure LCD_DB1 pin I/O as digital output push-pull */
   GPIO_InitStructure.GPIO_Mode = LCD_DB1_GPIO_MODE;
   GPIO_InitStructure.GPIO_Pin = LCD_DB1_GPIO_PIN;
   GPIO_Init(LCD_DB1_GPIO_PORT, &GPIO_InitStructure);
+  GPIO_WriteBit(LCD_DB1_GPIO_PORT, LCD_DB1_GPIO_PIN, Bit_RESET);
     
   /* Configure LCD_DB2 pin I/O as digital output push-pull */
   GPIO_InitStructure.GPIO_Mode = LCD_DB2_GPIO_MODE;
   GPIO_InitStructure.GPIO_Pin = LCD_DB2_GPIO_PIN;
   GPIO_Init(LCD_DB2_GPIO_PORT, &GPIO_InitStructure);
+  GPIO_WriteBit(LCD_DB2_GPIO_PORT, LCD_DB2_GPIO_PIN, Bit_RESET);
   
   /* Configure LCD_DB3 pin I/O as digital output push-pull */
   GPIO_InitStructure.GPIO_Mode = LCD_DB3_GPIO_MODE;
   GPIO_InitStructure.GPIO_Pin = LCD_DB3_GPIO_PIN;
   GPIO_Init(LCD_DB3_GPIO_PORT, &GPIO_InitStructure);
+  GPIO_WriteBit(LCD_DB3_GPIO_PORT, LCD_DB3_GPIO_PIN, Bit_RESET);
 
   /* Configure LCD_DB4 pin I/O as digital output push-pull */
   GPIO_InitStructure.GPIO_Mode = LCD_DB4_GPIO_MODE;
   GPIO_InitStructure.GPIO_Pin = LCD_DB4_GPIO_PIN;
   GPIO_Init(LCD_DB4_GPIO_PORT, &GPIO_InitStructure);
+  GPIO_WriteBit(LCD_DB4_GPIO_PORT, LCD_DB4_GPIO_PIN, Bit_RESET);
 
   /* Configure LCD_DB5 pin I/O as digital output push-pull */
   GPIO_InitStructure.GPIO_Mode = LCD_DB5_GPIO_MODE;
   GPIO_InitStructure.GPIO_Pin = LCD_DB5_GPIO_PIN;
   GPIO_Init(LCD_DB5_GPIO_PORT, &GPIO_InitStructure);
+  GPIO_WriteBit(LCD_DB5_GPIO_PORT, LCD_DB5_GPIO_PIN, Bit_RESET);
 
   /* Configure LCD_DB6 pin I/O as digital output push-pull */
   GPIO_InitStructure.GPIO_Mode = LCD_DB6_GPIO_MODE;
   GPIO_InitStructure.GPIO_Pin = LCD_DB6_GPIO_PIN;
   GPIO_Init(LCD_DB6_GPIO_PORT, &GPIO_InitStructure);
-  
+  GPIO_WriteBit(LCD_DB6_GPIO_PORT, LCD_DB6_GPIO_PIN, Bit_RESET);
+
   /* Configure LCD_DB7 pin I/O as digital output push-pull */
   GPIO_InitStructure.GPIO_Mode = LCD_DB7_GPIO_MODE;
   GPIO_InitStructure.GPIO_Pin = LCD_DB7_GPIO_PIN;
   GPIO_Init(LCD_DB7_GPIO_PORT, &GPIO_InitStructure);
-  
+  GPIO_WriteBit(LCD_DB7_GPIO_PORT, LCD_DB7_GPIO_PIN, Bit_RESET);
+
   /* Configure LCD_DB8 pin I/O as digital output push-pull */
   GPIO_InitStructure.GPIO_Mode = LCD_DB8_GPIO_MODE;
   GPIO_InitStructure.GPIO_Pin = LCD_DB8_GPIO_PIN;
   GPIO_Init(LCD_DB8_GPIO_PORT, &GPIO_InitStructure);
-  
+  GPIO_WriteBit(LCD_DB8_GPIO_PORT, LCD_DB8_GPIO_PIN, Bit_RESET);
+
   /* Configure LCD_DB9 pin I/O as digital output push-pull */
   GPIO_InitStructure.GPIO_Mode = LCD_DB9_GPIO_MODE;
   GPIO_InitStructure.GPIO_Pin = LCD_DB9_GPIO_PIN;
   GPIO_Init(LCD_DB9_GPIO_PORT, &GPIO_InitStructure);
+  GPIO_WriteBit(LCD_DB9_GPIO_PORT, LCD_DB9_GPIO_PIN, Bit_RESET);
 
   /* Configure LCD_DB10 pin I/O as digital output push-pull */
   GPIO_InitStructure.GPIO_Mode = LCD_DB10_GPIO_MODE;
   GPIO_InitStructure.GPIO_Pin = LCD_DB10_GPIO_PIN;
   GPIO_Init(LCD_DB10_GPIO_PORT, &GPIO_InitStructure);
+  GPIO_WriteBit(LCD_DB10_GPIO_PORT, LCD_DB10_GPIO_PIN, Bit_RESET);
 
   /* Configure LCD_DB11 pin I/O as digital output push-pull */
   GPIO_InitStructure.GPIO_Mode = LCD_DB11_GPIO_MODE;
   GPIO_InitStructure.GPIO_Pin = LCD_DB11_GPIO_PIN;
   GPIO_Init(LCD_DB11_GPIO_PORT, &GPIO_InitStructure);
+  GPIO_WriteBit(LCD_DB11_GPIO_PORT, LCD_DB11_GPIO_PIN, Bit_RESET);
 
   /* Configure LCD_DB12 pin I/O as digital output push-pull */
   GPIO_InitStructure.GPIO_Mode = LCD_DB12_GPIO_MODE;
   GPIO_InitStructure.GPIO_Pin = LCD_DB12_GPIO_PIN;
   GPIO_Init(LCD_DB12_GPIO_PORT, &GPIO_InitStructure);
+  GPIO_WriteBit(LCD_DB12_GPIO_PORT, LCD_DB12_GPIO_PIN, Bit_RESET);
 
   /* Configure LCD_DB13 pin I/O as digital output push-pull */
   GPIO_InitStructure.GPIO_Mode = LCD_DB13_GPIO_MODE;
   GPIO_InitStructure.GPIO_Pin = LCD_DB13_GPIO_PIN;
   GPIO_Init(LCD_DB13_GPIO_PORT, &GPIO_InitStructure);
+  GPIO_WriteBit(LCD_DB13_GPIO_PORT, LCD_DB13_GPIO_PIN, Bit_RESET);
 
   /* Configure LCD_DB14 pin I/O as digital output push-pull */
   GPIO_InitStructure.GPIO_Mode = LCD_DB14_GPIO_MODE;
   GPIO_InitStructure.GPIO_Pin = LCD_DB14_GPIO_PIN;
   GPIO_Init(LCD_DB14_GPIO_PORT, &GPIO_InitStructure);
+  GPIO_WriteBit(LCD_DB14_GPIO_PORT, LCD_DB14_GPIO_PIN, Bit_RESET);
 
   /* Configure LCD_DB15 pin I/O as digital output push-pull */
   GPIO_InitStructure.GPIO_Mode = LCD_DB15_GPIO_MODE;
   GPIO_InitStructure.GPIO_Pin = LCD_DB15_GPIO_PIN;
   GPIO_Init(LCD_DB15_GPIO_PORT, &GPIO_InitStructure);
+  GPIO_WriteBit(LCD_DB15_GPIO_PORT, LCD_DB15_GPIO_PIN, Bit_RESET);
    
   /* Configure KPD_RET2 pin I/O as digital input pull-up */
   GPIO_InitStructure.GPIO_Mode = KPD_RET2_GPIO_MODE;

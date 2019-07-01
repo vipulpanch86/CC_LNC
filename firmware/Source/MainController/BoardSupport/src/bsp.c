@@ -207,11 +207,13 @@ static void GPIO_Configuration(void)
   GPIO_InitStructure.GPIO_Mode = UV_EN_GPIO_MODE;
   GPIO_InitStructure.GPIO_Pin = UV_EN_GPIO_PIN;
   GPIO_Init(UV_EN_GPIO_PORT, &GPIO_InitStructure);
+  GPIO_WriteBit(UV_EN_GPIO_PORT, UV_EN_GPIO_PIN, Bit_RESET);
 
   /* Configure RGB_EN pin I/O as output push-pull */
   GPIO_InitStructure.GPIO_Mode = RGB_EN_GPIO_MODE;
   GPIO_InitStructure.GPIO_Pin = RGB_EN_GPIO_PIN;
   GPIO_Init(RGB_EN_GPIO_PORT, &GPIO_InitStructure);
+  GPIO_WriteBit(RGB_EN_GPIO_PORT, RGB_EN_GPIO_PIN, Bit_RESET);
   
   /* Configure SWDIO pin I/O as input floating  */
   GPIO_InitStructure.GPIO_Mode = SWDIO_GPIO_MODE;
@@ -227,6 +229,7 @@ static void GPIO_Configuration(void)
   GPIO_InitStructure.GPIO_Mode = WD_INH_GPIO_MODE;
   GPIO_InitStructure.GPIO_Pin = WD_INH_GPIO_PIN;
   GPIO_Init(WD_INH_GPIO_PORT, &GPIO_InitStructure);
+  GPIO_WriteBit(WD_INH_GPIO_PORT, WD_INH_GPIO_PIN, Bit_SET);  
   
   /* Configure THICK_L pin I/O as analog input */
   GPIO_InitStructure.GPIO_Mode = THICK_L_GPIO_MODE;
@@ -247,6 +250,7 @@ static void GPIO_Configuration(void)
   GPIO_InitStructure.GPIO_Mode = WD_CLK_GPIO_MODE;
   GPIO_InitStructure.GPIO_Pin = WD_CLK_GPIO_PIN;
   GPIO_Init(WD_CLK_GPIO_PORT, &GPIO_InitStructure); 
+  GPIO_WriteBit(WD_CLK_GPIO_PORT, WD_CLK_GPIO_PIN, Bit_RESET);  
   
   /* Configure WD_SO pin I/O as input floating */
   GPIO_InitStructure.GPIO_Mode = WD_SO_GPIO_MODE;
@@ -257,6 +261,7 @@ static void GPIO_Configuration(void)
   GPIO_InitStructure.GPIO_Mode = WD_SI_GPIO_MODE;
   GPIO_InitStructure.GPIO_Pin = WD_SI_GPIO_PIN;
   GPIO_Init(WD_SI_GPIO_PORT, &GPIO_InitStructure); 
+  GPIO_WriteBit(WD_SI_GPIO_PORT, WD_SI_GPIO_PIN, Bit_RESET);  
   
   /* Configure RGB_L_SCL pin I/O as alternate function open-drain */
   GPIO_InitStructure.GPIO_Mode = RGB_L_SCL_GPIO_MODE;
@@ -271,12 +276,14 @@ static void GPIO_Configuration(void)
   /* Configure WD_LD pin I/O as output push-pull */
   GPIO_InitStructure.GPIO_Mode = WD_LD_GPIO_MODE;
   GPIO_InitStructure.GPIO_Pin = WD_LD_GPIO_PIN;
-  GPIO_Init(WD_LD_GPIO_PORT, &GPIO_InitStructure); 
+  GPIO_Init(WD_LD_GPIO_PORT, &GPIO_InitStructure);
+  GPIO_WriteBit(WD_LD_GPIO_PORT, WD_LD_GPIO_PIN, Bit_RESET);  
   
   /* Configure COUNTER_EN pin I/O as output push-pull */
   GPIO_InitStructure.GPIO_Mode = COUNTER_EN_GPIO_MODE;
   GPIO_InitStructure.GPIO_Pin = COUNTER_EN_GPIO_PIN;
   GPIO_Init(COUNTER_EN_GPIO_PORT, &GPIO_InitStructure); 
+  GPIO_WriteBit(COUNTER_EN_GPIO_PORT, COUNTER_EN_GPIO_PIN, Bit_RESET);
   
   /* Configure RGB_R_SCL pin I/O as alternate function open-drain */
   GPIO_InitStructure.GPIO_Mode = RGB_R_SCL_GPIO_MODE;
@@ -312,6 +319,7 @@ static void GPIO_Configuration(void)
   GPIO_InitStructure.GPIO_Mode = STACKER_EN_GPIO_MODE;
   GPIO_InitStructure.GPIO_Pin = STACKER_EN_GPIO_PIN;
   GPIO_Init(STACKER_EN_GPIO_PORT, &GPIO_InitStructure); 
+  GPIO_WriteBit(STACKER_EN_GPIO_PORT, STACKER_EN_GPIO_PIN, Bit_RESET);
   
   /* Configure STACKER_IN pin I/O as analog input */
   GPIO_InitStructure.GPIO_Mode = STACKER_IN_GPIO_MODE;
@@ -322,6 +330,7 @@ static void GPIO_Configuration(void)
   GPIO_InitStructure.GPIO_Mode = FEEDER_EN_GPIO_MODE;
   GPIO_InitStructure.GPIO_Pin = FEEDER_EN_GPIO_PIN;
   GPIO_Init(FEEDER_EN_GPIO_PORT, &GPIO_InitStructure); 
+  GPIO_WriteBit(FEEDER_EN_GPIO_PORT, FEEDER_EN_GPIO_PIN, Bit_RESET);
   
   /* Configure FEEDER_IN pin I/O as analog input */
   GPIO_InitStructure.GPIO_Mode = FEEDER_IN_GPIO_MODE;
@@ -342,21 +351,25 @@ static void GPIO_Configuration(void)
   GPIO_InitStructure.GPIO_Mode = DC_MOTOR_GPIO_MODE;
   GPIO_InitStructure.GPIO_Pin = DC_MOTOR_GPIO_PIN;
   GPIO_Init(DC_MOTOR_GPIO_PORT, &GPIO_InitStructure); 
+  GPIO_WriteBit(DC_MOTOR_GPIO_PORT, DC_MOTOR_GPIO_PIN, Bit_RESET);
   
   /* Configure ACM_MAIN pin I/O as output push-pull */
   GPIO_InitStructure.GPIO_Mode = ACM_MAIN_GPIO_MODE;
   GPIO_InitStructure.GPIO_Pin = ACM_MAIN_GPIO_PIN;
   GPIO_Init(ACM_MAIN_GPIO_PORT, &GPIO_InitStructure); 
+  GPIO_WriteBit(ACM_MAIN_GPIO_PORT, ACM_MAIN_GPIO_PIN, Bit_RESET);
   
   /* Configure ACM_AUX pin I/O as output push-pull */
   GPIO_InitStructure.GPIO_Mode = ACM_AUX_GPIO_MODE;
   GPIO_InitStructure.GPIO_Pin = ACM_AUX_GPIO_PIN;
   GPIO_Init(ACM_AUX_GPIO_PORT, &GPIO_InitStructure); 
+  GPIO_WriteBit(ACM_AUX_GPIO_PORT, ACM_AUX_GPIO_PIN, Bit_RESET);
   
   /* Configure BUZZER pin I/O as output push-pull */
   GPIO_InitStructure.GPIO_Mode = BUZZER_GPIO_MODE;
   GPIO_InitStructure.GPIO_Pin = BUZZER_GPIO_PIN;
   GPIO_Init(BUZZER_GPIO_PORT, &GPIO_InitStructure); 
+  GPIO_WriteBit(BUZZER_GPIO_PORT, BUZZER_GPIO_PIN, Bit_RESET);
 
   /* Configure UI_USART_TX pin I/O as alternate function push-pull */
   GPIO_InitStructure.GPIO_Mode = UI_USART_TX_GPIO_MODE;
@@ -372,36 +385,43 @@ static void GPIO_Configuration(void)
   GPIO_InitStructure.GPIO_Mode = UI_BOOT0_GPIO_MODE;
   GPIO_InitStructure.GPIO_Pin = UI_BOOT0_GPIO_PIN;
   GPIO_Init(UI_BOOT0_GPIO_PORT, &GPIO_InitStructure); 
+  GPIO_WriteBit(UI_BOOT0_GPIO_PORT, UI_BOOT0_GPIO_PIN, Bit_RESET);
   
   /* Configure WD_LED_EN pin I/O as output push-pull */
   GPIO_InitStructure.GPIO_Mode = WD_LED_EN_GPIO_MODE;
   GPIO_InitStructure.GPIO_Pin = WD_LED_EN_GPIO_PIN;
   GPIO_Init(WD_LED_EN_GPIO_PORT, &GPIO_InitStructure); 
+  GPIO_WriteBit(WD_LED_EN_GPIO_PORT, WD_LED_EN_GPIO_PIN, Bit_RESET);
   
   /* Configure CD_BOOT0 pin I/O as output push-pull */
   GPIO_InitStructure.GPIO_Mode = CD_BOOT0_GPIO_MODE;
   GPIO_InitStructure.GPIO_Pin = CD_BOOT0_GPIO_PIN;
   GPIO_Init(CD_BOOT0_GPIO_PORT, &GPIO_InitStructure); 
+  GPIO_WriteBit(CD_BOOT0_GPIO_PORT, CD_BOOT0_GPIO_PIN, Bit_RESET);
   
   /* Configure CD_NRST pin I/O as output push-pull */
   GPIO_InitStructure.GPIO_Mode = CD_NRST_GPIO_MODE;
   GPIO_InitStructure.GPIO_Pin = CD_NRST_GPIO_PIN;
   GPIO_Init(CD_NRST_GPIO_PORT, &GPIO_InitStructure); 
-  
+  GPIO_WriteBit(CD_NRST_GPIO_PORT, CD_NRST_GPIO_PIN, Bit_SET);
+
   /* Configure TP2 pin I/O as output push-pull */
   GPIO_InitStructure.GPIO_Mode = TP2_GPIO_MODE;
   GPIO_InitStructure.GPIO_Pin = TP2_GPIO_PIN;
   GPIO_Init(TP2_GPIO_PORT, &GPIO_InitStructure); 
+  GPIO_WriteBit(TP2_GPIO_PORT, TP2_GPIO_PIN, Bit_RESET);
   
   /* Configure TP1 pin I/O as output push-pull */
   GPIO_InitStructure.GPIO_Mode = TP1_GPIO_MODE;
   GPIO_InitStructure.GPIO_Pin = TP1_GPIO_PIN;
   GPIO_Init(TP1_GPIO_PORT, &GPIO_InitStructure); 
+  GPIO_WriteBit(TP1_GPIO_PORT, TP1_GPIO_PIN, Bit_RESET);
   
   /* Configure UI_NRST pin I/O as output push-pull */
   GPIO_InitStructure.GPIO_Mode = UI_NRST_GPIO_MODE;
   GPIO_InitStructure.GPIO_Pin = UI_NRST_GPIO_PIN;
   GPIO_Init(UI_NRST_GPIO_PORT, &GPIO_InitStructure); 
+  GPIO_WriteBit(CD_NRST_GPIO_PORT, CD_NRST_GPIO_PIN, Bit_SET);
 }
 
 #define COUNTER_TIM

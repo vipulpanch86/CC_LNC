@@ -35,6 +35,7 @@ int main(void)
        
   BSP_Init();
   LCD8080_Init();
+  GPIO_SetBits(LCD_BKL_GPIO_PORT, LCD_BKL_GPIO_PIN);
   ILI9341_Init();
   
   printf("\n\r Power Up \n\r");

@@ -32,6 +32,8 @@
 #define DB_MASK       0xFF
 
 /* Controlling Signals for LCD GPIO */
+#if 0
+
 #define Clr_RS()      GPIO_WriteBit(LCD_RS_GPIO_PORT, LCD_RS_GPIO_PIN, Bit_RESET)
 #define Set_RS()      GPIO_WriteBit(LCD_RS_GPIO_PORT, LCD_RS_GPIO_PIN, Bit_SET)
 #define Clr_WR()      GPIO_WriteBit(LCD_WR_GPIO_PORT, LCD_WR_GPIO_PIN, Bit_RESET)
@@ -41,6 +43,18 @@
 #define Clr_CS()      GPIO_WriteBit(LCD_CS_GPIO_PORT, LCD_CS_GPIO_PIN, Bit_RESET)
 #define Set_CS()      GPIO_WriteBit(LCD_CS_GPIO_PORT, LCD_CS_GPIO_PIN, Bit_SET)
 
+#else
+
+#define Clr_RS()      LCD_RS_GPIO_PORT->BRR  = LCD_RS_GPIO_PIN
+#define Set_RS()      LCD_RS_GPIO_PORT->BSRR = LCD_RS_GPIO_PIN
+#define Clr_WR()      LCD_WR_GPIO_PORT->BRR  = LCD_WR_GPIO_PIN
+#define Set_WR()      LCD_WR_GPIO_PORT->BSRR = LCD_WR_GPIO_PIN
+#define Clr_RD()      LCD_RD_GPIO_PORT->BRR  = LCD_RD_GPIO_PIN
+#define Set_RD()      LCD_RD_GPIO_PORT->BSRR = LCD_RD_GPIO_PIN
+#define Clr_CS()      LCD_CS_GPIO_PORT->BRR  = LCD_CS_GPIO_PIN
+#define Set_CS()      LCD_CS_GPIO_PORT->BSRR = LCD_CS_GPIO_PIN
+
+#endif
 /******************************************************************************
  *      Type Definations
  *****************************************************************************/
@@ -76,12 +90,17 @@ static uint8_t ReadDataBus(void)
   return (uint8_t)((in >> DB_SHIFT) & DB_MASK);
 }
 
+#if 0
 static void WriteDataBus(uint8_t data)
 {
   uint16_t out = GPIO_ReadOutputData(DB_GPIO_PORT);
   out = (out & ~(DB_MASK << DB_SHIFT)) | (data << DB_SHIFT);
   GPIO_Write(DB_GPIO_PORT, out);
 }
+#endif
+
+#define WriteDataBus(data)  \
+DB_GPIO_PORT->ODR = (DB_GPIO_PORT->ODR & ~(DB_MASK << DB_SHIFT)) | (data << DB_SHIFT)
 
 static void WriteLcd8(uint8_t data)
 {

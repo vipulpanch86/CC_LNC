@@ -28,7 +28,7 @@
 /* Mapping of LCD Interface Signals according to the hardware */
 //DATA BUS PIN AND PORT, STANDARD GPIO
 #define DB_GPIO_PORT  GPIOB
-#define DB_SHIFT      0
+#define DB_SHIFT      8
 #define DB_MASK       0xFF
 
 /* Controlling Signals for LCD GPIO */

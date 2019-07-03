@@ -421,7 +421,7 @@ static void GPIO_Configuration(void)
   GPIO_InitStructure.GPIO_Mode = UI_NRST_GPIO_MODE;
   GPIO_InitStructure.GPIO_Pin = UI_NRST_GPIO_PIN;
   GPIO_Init(UI_NRST_GPIO_PORT, &GPIO_InitStructure); 
-  GPIO_WriteBit(CD_NRST_GPIO_PORT, CD_NRST_GPIO_PIN, Bit_SET);
+  GPIO_WriteBit(UI_NRST_GPIO_PORT, UI_NRST_GPIO_PIN, Bit_SET);
 }
 
 #define COUNTER_TIM
